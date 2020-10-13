@@ -29,16 +29,10 @@ public class MainActivity2 extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
 
-    CircleImageView imgView;
-    TextView username, email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-
-        imgView = (CircleImageView)findViewById(R.id.imageView);
-        username = (TextView)findViewById(R.id.username);
-        email = (TextView)findViewById(R.id.email);
 
         username.setText(Prevelant.currentUserOnline.getUsername());
 
@@ -63,6 +57,16 @@ public class MainActivity2 extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        
+        View headView = navigationView.getHeaderView(0);
+        CircleImageView imgView = headView.findViewById(R.id.imageView);
+        TextView username = headView.findViewById(R.id.username);
+        TextView email = headView.findViewById(R.id.email);
+        
+        //username.setText(Prevelant.currentUserOnline.getUsername());
+        //email.setText(Prevelant.currentUserOnline.getEmail());
+        //Picasso.get().load().placeholder(R.drawable.logo).into(imgView);
+        
     }
 
     @Override
