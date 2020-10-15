@@ -34,7 +34,7 @@ public class MainActivity2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
 
-        username.setText(Prevelant.currentUserOnline.getUsername());
+
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -57,16 +57,16 @@ public class MainActivity2 extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
-        
+
         View headView = navigationView.getHeaderView(0);
         CircleImageView imgView = headView.findViewById(R.id.imageView);
         TextView username = headView.findViewById(R.id.username);
         TextView email = headView.findViewById(R.id.email);
-        
-        //username.setText(Prevelant.currentUserOnline.getUsername());
-        //email.setText(Prevelant.currentUserOnline.getEmail());
-        //Picasso.get().load().placeholder(R.drawable.logo).into(imgView);
-        
+
+        username.setText(Prevelant.currentUserOnline.getUsername());
+        email.setText(Prevelant.currentUserOnline.getEmail_Address());
+        Picasso.get().load(Prevelant.currentUserOnline.getImage()).placeholder(R.drawable.avatar).into(imgView);
+
     }
 
     @Override
